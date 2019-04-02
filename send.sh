@@ -8,21 +8,21 @@ echo -e "[Webhook]: Sending webhook to Discord...\\n";
 
 case $1 in
   "success" )
-    PSTATUS = "[P] "
+    PSTATUS = "[P]"
     EMBED_COLOR=3066993
     STATUS_MESSAGE="Passed"
     AVATAR="https://travis-ci.org/images/logos/TravisCI-Mascot-blue.png"
     ;;
 
   "failure" )
-    PSTATUS = "[F] "
+    PSTATUS = "[F]"
     EMBED_COLOR=15158332
     STATUS_MESSAGE="Failed"
     AVATAR="https://travis-ci.org/images/logos/TravisCI-Mascot-red.png"
     ;;
 
   * )
-    PSTATUS = "[U] "
+    PSTATUS = "[U]"
     EMBED_COLOR=0
     STATUS_MESSAGE="Status Unknown"
     AVATAR="https://travis-ci.org/images/logos/TravisCI-Mascot-1.png"
@@ -57,9 +57,9 @@ WEBHOOK_DATA='{
       "url": "'"$TRAVIS_BUILD_WEB_URL"'",
       "icon_url": "'$AVATAR'"
     },
-    "title": "'"$COMMIT_SUBJECT"'",
+    "title": "'"$PSTATUS $COMMIT_SUBJECT"'",
     "url": "'"$URL"'",
-    "description": "${PSTATUS}'"${COMMIT_MESSAGE//$'\n'/ }"\\n\\n"$CREDITS"'",
+    "description": "'"${COMMIT_MESSAGE//$'\n'/ }"\\n\\n"$CREDITS"'",
     "fields": [
       {
         "name": "Commit",
