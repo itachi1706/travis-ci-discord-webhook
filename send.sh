@@ -8,21 +8,21 @@ echo -e "[Webhook]: Sending webhook to Discord...\\n";
 
 case $1 in
   "success" )
-    PSTATUS="[P]"
+    PSTATUS="Pass: "
     EMBED_COLOR=3066993
     STATUS_MESSAGE="Passed"
     AVATAR="https://travis-ci.org/images/logos/TravisCI-Mascot-blue.png"
     ;;
 
   "failure" )
-    PSTATUS="[F]"
+    PSTATUS="Fail: "
     EMBED_COLOR=15158332
     STATUS_MESSAGE="Failed"
     AVATAR="https://travis-ci.org/images/logos/TravisCI-Mascot-red.png"
     ;;
 
   * )
-    PSTATUS="[U]"
+    PSTATUS="Unknown: "
     EMBED_COLOR=0
     STATUS_MESSAGE="Status Unknown"
     AVATAR="https://travis-ci.org/images/logos/TravisCI-Mascot-1.png"
